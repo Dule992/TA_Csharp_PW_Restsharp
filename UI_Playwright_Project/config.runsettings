@@ -1,0 +1,13 @@
+﻿﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <NUnit>
+    <NumberOfTestWorkers>2</NumberOfTestWorkers>
+  </NUnit>
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <BASE_ADDRESS>https://xyzfashionstore.com/rs/<BASE_ADDRESS>
+      <BROWSER_TYPE>Chrome</BROWSER_TYPE>
+      <HEADLESS_MODE>false</HEADLESS_MODE>
+     </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>
