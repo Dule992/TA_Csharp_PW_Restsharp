@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <NUnit>
+    <NumberOfTestWorkers>2</NumberOfTestWorkers>
+  </NUnit>
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <BASE_ADDRESS>https://xyzfashionstore.com/rs</BASE_ADDRESS>
+      <BROWSER_TYPE>CHROME</BROWSER_TYPE>
+      <HEADLESS_MODE>false</HEADLESS_MODE>
+      <VIEWPORT_SIZE_WIDTH>1366</VIEWPORT_SIZE_WIDTH>
+      <VIEWPORT_SIZE_HEIGHT>768</VIEWPORT_SIZE_HEIGHT>
+    </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>

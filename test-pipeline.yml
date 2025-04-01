@@ -1,0 +1,74 @@
+name: Test Automation (Playwright, API) Tests
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.x
+    - name: Install dependencies for API tests
+      run: dotnet restore
+      working-directory: ./API_RestSharp_Project
+
+    - name: Build API project
+      run: dotnet build --no-restore
+      working-directory: ./API_RestSharp_Project
+
+    - name: Run API tests
+      run: dotnet test --filter "FullyQualifiedName~API_RestSharp_Project"
+      working-directory: ./API_RestSharp_Project
+
+    - name: Install dependencies for Playwright tests
+      run: dotnet restore
+      working-directory: ./UI_Playwright_Project
+
+    - name: Build project for Playwright tests
+      run: dotnet build --no-restore
+      working-directory: ./UI_Playwright_Project
+
+    - name: Run Playwright tests
+      run: dotnet test -s chrome.runsettings
+      working-directory: ./UI_Playwright_Project
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: test-results
+        path: ./UI_Playwright_Project/allure-results
+        retention-days: 30
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: api-test-results
+        path: ./API_RestSharp_Project/TestResults
+        retention-days: 30
+
+    - name: Get Allure history
+      uses: actions/checkout@v4
+      if: always()
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Generate Allure Report
+      uses: simple-elf/allure-report-action@v1.7
+      if: always()
+      with:
+       allure_results: allure-results
+       allure_history: allure-history
+
+    - name: Deploy report to GitHub Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+       github_token: ${{ secrets.GITHUB_TOKEN }}
+       publish_dir: allure-history
+       publish_branch: gh-pages

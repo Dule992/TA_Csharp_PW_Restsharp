@@ -5,6 +5,11 @@ namespace UI_Playwright_Project.Setup
 {
     public static class ConfigReader
     {
+        public static string GetBaseAddress()
+        {
+            return Environment.GetEnvironmentVariable("BASE_ADDRESS")?.Trim() ?? "https://xyzfashionstore.com/rs";
+        }
+
         public static string GetBrowserType()
         {
             return Environment.GetEnvironmentVariable("BROWSER_TYPE")?.Trim().ToUpper(new CultureInfo("en-US", false)) ?? "CHROMIUM";
@@ -53,8 +58,8 @@ namespace UI_Playwright_Project.Setup
 
         public static ViewportSize GetDefaultViewportSize()
         {
-            var width = Environment.GetEnvironmentVariable("VIEWPORT_SIZE_WIDTH")?.Trim() ?? "1280";
-            var height = Environment.GetEnvironmentVariable("VIEWPORT_SIZE_HEIGHT")?.Trim() ?? "800";
+            var width = Environment.GetEnvironmentVariable("VIEWPORT_SIZE_WIDTH")?.Trim() ?? "1920";
+            var height = Environment.GetEnvironmentVariable("VIEWPORT_SIZE_HEIGHT")?.Trim() ?? "1080";
 
             return new ViewportSize
             {

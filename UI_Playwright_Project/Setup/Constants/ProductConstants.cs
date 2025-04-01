@@ -7,10 +7,5 @@
         private static readonly string _productItemColor = "Crna";
         public static string ProductItemName => _productItemName;
         public static string ProductItemColor => _productItemColor;
-
-
-        // Cart Page Elements Text
-        private static readonly string _proceedToPaymentButton = "Nastavi na plaćanje";
-        public static string ProceedToPaymentButton => _proceedToPaymentButton;
     }
 }

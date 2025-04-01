@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "Allure Tests": {
+      "commandName": "Project",
+      "workingDirectory": ".",
+      "environmentVariables": {
+        "ALLURE_CONFIG": "allureConfig.json"
+      }
+    }
+  }
+}
