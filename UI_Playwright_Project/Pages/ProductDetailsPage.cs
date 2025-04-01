@@ -12,11 +12,22 @@ namespace UI_Playwright_Project.Pages
             _page = page;
         }
 
-        public ILocator AddToCartButton => _page.Locator("#product-addtocart-button");
-        public ILocator CartCounterNumber => _page.Locator(".counter-number");
-        public ILocator ProductOptions => _page.Locator(".product-detail-infomation-content");
-        public ILocator ProductPrice => ProductOptions.Locator("span.price");
-        public ILocator ProductColor => ProductOptions.Locator(".swatch-attribute.color");
-        public ILocator SuccessMessage => _page.Locator(".message-success");
+        // Selectors
+        private string _addToCartButton = "#product-addtocart-button";
+        private string _cartCounterNumber = ".counter-number";
+        private string _productOptions = ".product-detail-infomation-content";
+        private string _productPrice = "span.price";
+        private string _productColor = ".swatch-attribute.color";
+        private string _successMessage = ".message-success";
+
+        // Locators
+        public ILocator AddToCartButton => _page.Locator(_addToCartButton);
+        public ILocator CartCounterNumber => _page.Locator(_cartCounterNumber);
+        public ILocator ProductOptions => _page.Locator(_productOptions);
+        public ILocator ProductPrice => ProductOptions.Locator(_productPrice);
+        public ILocator ProductColor => ProductOptions.Locator(_productColor);
+        public ILocator SuccessMessage => _page.Locator(_successMessage);
+
+        // Methodss
     }
 }

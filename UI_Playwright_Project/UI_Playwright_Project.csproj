@@ -47,9 +47,18 @@
   <ItemGroup>
     <Folder Include="allure-results\" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <None Update="allureConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="safari.runsettings">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="edge.runsettings">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="firefox.runsettings">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="chrome.runsettings">
