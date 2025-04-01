@@ -11,6 +11,12 @@ namespace UI_Playwright_Project.Pages
             _page = page;
         }
 
-        public ILocator AddToCartButton => _page.Locator("#product-addtocart-button");
+        // Selectors
+        private string _addToCartButton = "#product-addtocart-button";
+
+        // Locators
+        public ILocator AddToCartButton => _page.Locator(_addToCartButton);
+
+        // Methods
     }
 }

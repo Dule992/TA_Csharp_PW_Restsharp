@@ -10,10 +10,18 @@ namespace UI_Playwright_Project.Pages
         {
             _page = page;
         }
-        public ILocator EmailInputField => _page.Locator("#email");
-        public ILocator PasswordInputField => _page.GetByTitle("Lozinka");
-        public ILocator SubmitLoginButton => _page.Locator(".action.login.btn.btn-default");
 
+        // Selectors
+        private string _emailInputField = "#email";
+        private string _passwordInputField = "Lozinka";
+        private string _submitLoginButton = ".action.login.btn.btn-default";
+
+        // Locators
+        public ILocator EmailInputField => _page.Locator(_emailInputField);
+        public ILocator PasswordInputField => _page.GetByTitle(_passwordInputField);
+        public ILocator SubmitLoginButton => _page.Locator(_submitLoginButton);
+
+        // Methods
         public async Task LoginAsync(string email, string password)
         {
             await EmailInputField.FillAsync(email, new LocatorFillOptions { Timeout = 1000 });
@@ -32,24 +40,5 @@ namespace UI_Playwright_Project.Pages
         {
             await locator.ClickAsync();
         }
-
-        public async Task RetryAsync(Func<Task> action, int maxAttempts = 3, int delayMs = 1000)
-        {
-            for (int attempt = 1; attempt <= maxAttempts; attempt++)
-            {
-                try
-                {
-                    await action();
-                    return; // Success, exit loop
-                }
-                catch (Exception ex) when (attempt < maxAttempts)
-                {
-                    Console.WriteLine($"Attempt {attempt} failed: {ex.Message}");
-                    await Task.Delay(delayMs * attempt); // Exponential backoff
-                }
-            }
-            throw new Exception($"Action failed after {maxAttempts} attempts");
-        }
-
     }
 }

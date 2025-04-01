@@ -56,30 +56,23 @@ namespace UI_Playwright_Project.Pages
                 await FirstNameField.ClearAsync();
                 await _page.Keyboard.TypeAsync(firstName, new KeyboardTypeOptions { Delay = 100 });
                 await Expect(FirstNameField).ToHaveValueAsync(firstName);
-                //await FirstNameField.FillAsync(firstName, new LocatorFillOptions { Timeout = 1000 });
                 await LastNameField.ClearAsync();
                 await _page.Keyboard.TypeAsync(lastName, new KeyboardTypeOptions { Delay = 100 });
                 await Expect(LastNameField).ToHaveValueAsync(lastName);
-                //await LastNameField.FillAsync(lastName, new LocatorFillOptions { Timeout = 1000 });
                 await CompanyNameField.ClearAsync();
                 await _page.Keyboard.TypeAsync(companyName, new KeyboardTypeOptions { Delay = 100 });
                 await Expect(CompanyNameField).ToHaveValueAsync(companyName);
-                //await CompanyNameField.FillAsync(companyName, new LocatorFillOptions { Timeout = 1000 });
                 await AddressField.ClearAsync();
                 await _page.Keyboard.TypeAsync(address, new KeyboardTypeOptions { Delay = 100 });
                 await Expect(AddressField).ToHaveValueAsync(address);
-                //await AddressField.FillAsync(address, new LocatorFillOptions { Timeout = 1000 });
                 await CityField.ClearAsync();
                 await _page.Keyboard.TypeAsync(city, new KeyboardTypeOptions { Delay = 100 });
                 await Expect(CityField).ToHaveValueAsync(city);
-                //await CityField.FillAsync(city, new LocatorFillOptions { Timeout = 1000 });
                 await PostcodeField.ClearAsync();
                 await _page.Keyboard.TypeAsync(postcode, new KeyboardTypeOptions { Delay = 100 });
                 await Expect(PostcodeField).ToHaveValueAsync(postcode);
-                //await PostcodeField.FillAsync(postcode, new LocatorFillOptions { Timeout = 1000 });
                 await PhoneNumberField.ClearAsync();
                 await _page.Keyboard.TypeAsync(phoneNumber, new KeyboardTypeOptions { Delay = 100 });
-                //await PhoneNumberField.FillAsync(phoneNumber, new LocatorFillOptions { Timeout = 1000 });
 
                 bool isFieldErrorExist = await FieldsError.CountAsync() > 0;
                 if (isFieldErrorExist.Equals(true))
