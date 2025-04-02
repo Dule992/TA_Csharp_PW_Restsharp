@@ -1,5 +1,7 @@
 ﻿Feature: Checkout
+	Verifying checkout flow
 
+@UI
 Scenario: Verify Checkout process
 	Given User opens Home Page
 	And User login to the account

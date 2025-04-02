@@ -10,6 +10,7 @@
       <HEADLESS_MODE>true</HEADLESS_MODE>
       <VIEWPORT_SIZE_WIDTH>1366</VIEWPORT_SIZE_WIDTH>
       <VIEWPORT_SIZE_HEIGHT>768</VIEWPORT_SIZE_HEIGHT>
+      <EXTENT_REPORT_MODE>true</EXTENT_REPORT_MODE>
     </EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>

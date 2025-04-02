@@ -5,7 +5,7 @@ namespace UI_Playwright_Project.Pages
 {
     public class CartPage : BasePage
     {
-        private new readonly IPage _page;
+        readonly IPage _page;
 
         public CartPage(IPage page) : base(page)
         {

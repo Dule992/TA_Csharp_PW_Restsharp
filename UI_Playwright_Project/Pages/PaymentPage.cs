@@ -4,7 +4,7 @@ namespace UI_Playwright_Project.Pages
 {
     public class PaymentPage: BasePage
     {
-        private new readonly IPage _page;
+        readonly IPage _page;
 
         public PaymentPage(IPage page) : base(page)
         {

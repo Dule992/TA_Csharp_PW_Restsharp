@@ -29,7 +29,7 @@ namespace UI_Playwright_Project
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "", "Checkout", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "", "Checkout", "\tVerifying checkout flow", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "Checkout.feature"
 #line hidden
@@ -84,12 +84,14 @@ namespace UI_Playwright_Project
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Checkout process")]
+        [NUnit.Framework.CategoryAttribute("UI")]
         public async System.Threading.Tasks.Task VerifyCheckoutProcess()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "UI"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Verify Checkout process", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 3
+#line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -99,31 +101,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 4
+#line 6
  await testRunner.GivenAsync("User opens Home Page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 5
+#line 7
  await testRunner.AndAsync("User login to the account", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 6
+#line 8
  await testRunner.WhenAsync("User selects a product item", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 7
+#line 9
  await testRunner.AndAsync("User clicks on cart button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 8
+#line 10
  await testRunner.ThenAsync("User should see the product item in the cart details", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 9
+#line 11
  await testRunner.WhenAsync("User clicks on proceed payment button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 10
+#line 12
  await testRunner.ThenAsync("User should see the shipping form page opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 11
+#line 13
  await testRunner.WhenAsync("User fills the shipping form", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 12
+#line 14
  await testRunner.ThenAsync("User should see the payment page opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

@@ -6,7 +6,7 @@ namespace UI_Playwright_Project.Pages
 {
     public class ShippingPage : BasePage
     {
-        private new readonly IPage _page;
+        readonly IPage _page;
         private Faker _faker = new Faker();
 
         public ShippingPage(IPage page) : base(page)

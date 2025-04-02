@@ -91,7 +91,7 @@ UI and API Tests Workflow (.github/workflows/test-pipeline.yml)
 
 Playwright Traces: playwright show-trace trace.zip
 
-Allure Reports (if configured): allure serve allure-results
+Extent ui-test-report.html file you can find on this path: TestAutomationProject\UI_Playwright_Project\bin\Report
 
 ### API Test Reports
 

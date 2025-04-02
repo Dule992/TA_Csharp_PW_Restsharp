@@ -1,5 +1,6 @@
 ﻿using Microsoft.Playwright;
 using System.Globalization;
+using System.Net;
 
 namespace UI_Playwright_Project.Setup
 {
@@ -30,10 +31,32 @@ namespace UI_Playwright_Project.Setup
             Environment.SetEnvironmentVariable("HEADLESS_MODE", value.ToString());
         }
 
+        public static string GetBuildNumber()
+        {
+            if (Environment.GetEnvironmentVariable("BUILD_NUMBER") is null)
+            {
+                return Dns.GetHostName();
+            }
+            else
+            {
+                return Environment.GetEnvironmentVariable("BUILDBRANCH")?.Trim() + "_" +
+                       Environment.GetEnvironmentVariable("BUILD_NUMBER")?.Trim();
+            }
+        }
+
         public static bool GetExtentReportMode()
         {
             return Environment.GetEnvironmentVariable("EXTENT_REPORT_MODE") is null ||
                    Convert.ToBoolean(Environment.GetEnvironmentVariable("EXTENT_REPORT_MODE"));
+        }
+
+        /// <summary>
+        /// Get Screenshot On Each Step status (true/false).
+        /// </summary>
+        /// <returns></returns>
+        public static bool GetScreenshotOnEachStep()
+        {
+            return Convert.ToBoolean(Environment.GetEnvironmentVariable("SCREENSHOT_ON_EACHSTEP"));
         }
 
         public static void SetExtentReportMode(bool value)

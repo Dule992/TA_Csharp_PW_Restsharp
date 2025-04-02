@@ -1,10 +1,11 @@
 ﻿using Microsoft.Playwright;
+using UI_Playwright_Project.Setup.Enums;
 
 namespace UI_Playwright_Project.Pages
 {
     public class BasePage: PageTest
     {
-        public readonly IPage _page;
+        readonly IPage _page;
 
         public BasePage(IPage page)
         {
@@ -24,8 +25,8 @@ namespace UI_Playwright_Project.Pages
         // Methods
         public async Task LoginAsync(string email, string password)
         {
-            await EmailInputField.FillAsync(email, new LocatorFillOptions { Timeout = 1000 });
-            await PasswordInputField.FillAsync(password, new LocatorFillOptions { Timeout = 1000 });
+            await EmailInputField.FillAsync(email, new LocatorFillOptions { Timeout = (int)Timeouts.ElementsLoadInMS });
+            await PasswordInputField.FillAsync(password, new LocatorFillOptions { Timeout = (int)Timeouts.ElementsLoadInMS });
             await ClickOnAsync(SubmitLoginButton);
         }
 

@@ -88,7 +88,7 @@ namespace UI_Playwright_Project.Setup
 
         public static async Task CreatePageAsync()
         {
-            _page = await BrowserContext.NewPageAsync();
+            _page = await Browser.NewPageAsync();
         }
 
         public static async Task CloseBrowserAsync()
