@@ -8,6 +8,8 @@ using Microsoft.Playwright;
 using NLog;
 using Reqnroll;
 using System.Diagnostics;
+using System;
+using System.Threading;
 
 namespace UI_Playwright_Project.Setup
 {
@@ -25,8 +27,7 @@ namespace UI_Playwright_Project.Setup
 
         private static AventStack.ExtentReports.ExtentReports _extentReport;
 
-        private static readonly string ReportPath = Directory.GetParent(Environment.CurrentDirectory).Parent?.FullName
-                                                    + Path.DirectorySeparatorChar + "Report" + Path.DirectorySeparatorChar;
+        private static readonly string ReportPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\Reports\\";
 
         [ThreadStatic]
         private static ExtentTest _feature;
@@ -56,7 +57,9 @@ namespace UI_Playwright_Project.Setup
         {
             if (ConfigReader.GetExtentReportMode())
             {
-                var path = ReportPath + "ui-test-report.html";
+                DateTime currentTime = DateTime.Now;
+                string fileName = "Extent-UI_" + currentTime.ToString("yyyy-MM-dd_HH-mm-ss") + ".html";
+                var path = ReportPath + fileName;
                 Log.Info($"Extent report ENABLED. Report path: {path}");
                 Log.Debug("OS Platform: " + Environment.OSVersion.Platform);
 
