@@ -91,7 +91,7 @@ UI and API Tests Workflow (.github/workflows/test-pipeline.yml)
 
 Playwright Traces: playwright show-trace trace.zip
 
-Extent ui-test-report.html file you can find on this path: TestAutomationProject\UI_Playwright_Project\bin\Report
+Extent Extent-UI_{date}.html file you can find on this path: TestAutomationProject\UI_Playwright_Project\Reports
 
 ### API Test Reports
 
